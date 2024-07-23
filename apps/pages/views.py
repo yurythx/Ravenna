@@ -18,3 +18,11 @@ def blog_index(request):
 def blog_details(request):
    
     return render(request, 'blog-details.html')
+
+def mangas(request):
+   
+    return render(request, 'mangas.html')
+
+def mangas_details(request):
+   
+    return render(request, 'mangas-detail.html')

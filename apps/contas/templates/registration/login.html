@@ -1,6 +1,6 @@
-{% extends 'base_auth.html' %}
+{% extends 'base.html' %}
 {% block title %}Login{% endblock %}
-{% block content_auth %}
+{% block content %}
 <form method="post" action="{% url 'login' %}">
     {% csrf_token %}
     <h4>Login</h4>

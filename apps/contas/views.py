@@ -22,7 +22,7 @@ def timeout_view(request):
 
 def logout_view(request):
     logout(request)
-    return redirect('home')
+    return redirect('index')
 
 def login_view(request):
     
@@ -44,19 +44,19 @@ def login_view(request):
          #           messages.warning(request, msg)
          #           return redirect('force_password_change') # Vai para rota de alterar senha.
         else:
-                   return redirect('home')
+                   return redirect('index')
     else:
             
                     messages.error(request, 'Email ou senha inválidos')
                 
                 
     if request.user.is_authenticated:
-        return redirect('home')
+        return redirect('index')
     return render(request, 'login.html')
 
 def register_view(request):
     if request.user.is_authenticated:
-        return redirect('home')
+        return redirect('index')
     if request.method == "POST":
         form = CustomUserCreationForm(request.POST, user=request.user)
         if form.is_valid():
@@ -89,7 +89,7 @@ def atualizar_usuario(request, username):
         if form.is_valid():
             form.save()
             messages.success(request, 'O perfil de usuário foi atualizado com sucesso!')
-            return redirect('home')
+            return redirect('index')
         
         else:
             add_form_errors_to_messages(request, form)
@@ -107,7 +107,7 @@ def atualizar_meu_usuario(request):
         if form.is_valid():
             form.save()
             messages.success(request, 'Seu perfil foi atualizado com sucesso!')
-            return redirect('home')
+            return redirect('index')
         else:
             add_form_errors_to_messages(request, form)
     else:
