@@ -6,6 +6,7 @@
 
 <body class="index-page">
 
+
     <header id="header" class="header d-flex align-items-center sticky-top">
       <div class="container-fluid position-relative d-flex align-items-center justify-content-between">
   
@@ -13,7 +14,7 @@
           <a href="{% url 'index' %}" class="logo d-flex align-items-center me-auto me-xl-0">
           <!-- Uncomment the line below if you also wish to use an image logo -->
           <!-- <img src="assets/img/logo.png" alt=""> -->
-          <i class="fa-solid fa-skull"></i>
+          
           <i class="bi bi-snow"></i>
           
           <h1 class="sitename">Project Ravenna</h1>
@@ -39,22 +40,36 @@
                     <li><a href="#">Deep Dropdown 4</a></li>
                     <li><a href="{% url 'index' %}">index</a></li>
                   </ul>
+                  
                 </li>
               </ul>
             </li>
             <li><a href="#">Project Havoc</a></li>
-            <li><a href="{% url 'about' %}">Sobre nós</a></li>
+           
           </ul>
           <i class="mobile-nav-toggle d-xl-none bi bi-list"></i>
+              
         </nav>
-  
-        <div class="header-social-links">
-          <a href="#" class="twitter"><i class="bi bi-twitter-x"></i></a>
-          <a href="#" class="facebook"><i class="bi bi-facebook"></i></a>
-          <a href="#" class="instagram"><i class="bi bi-instagram"></i></a>
-          <a href="#" class="linkedin"><i class="bi bi-linkedin"></i></a>
-        </div>
-  
+      
+      {% if user.is_authenticated %}
+      <button class="btn btn-warning mx-2" type="submit"  onclick="#">
+          <i class="fas fa-cog"></i></button>
+      <span class="p-2">
+          <a class="nav-link" href="{% url 'perfil' user.username %}">
+              <i class="fas fa-user mx-2"></i>{{user.first_name}} {{user.last_name}}
+          </a>
+      </span>
+      
+      <button class="btn btn-danger" data-bs-toggle="modal" href="#logoutModal">Logout</button>
+      
+      {% else %}
+      <button class="btn btn-primary mx-2" onclick="location.href='{% url 'login' %}'">Entrar</button>
+      <button class="btn btn-warning" onclick="location.href='{% url 'register' %}'">Cadastrar-se</button>
+      {% endif %}
+      
       </div>
+
+       
+        
     </header>
 <!--/_nav.html-->

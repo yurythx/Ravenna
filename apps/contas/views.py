@@ -79,7 +79,7 @@ def register_view(request):
     return render(request, "registration/register.html",{"form": form})
 
 @login_required()
-@grupo_colaborador_required(['Administrador','Colaborador'])
+#@grupo_colaborador_required(['Administrador','Colaborador'])
 
 def atualizar_usuario(request, username):
     user = get_object_or_404(MyUser, username=username)
@@ -99,7 +99,7 @@ def atualizar_usuario(request, username):
     return render(request, 'user_update.html', {'form': form})
 
 @login_required()
-@grupo_colaborador_required(['Administrador','colaborador'])
+#@grupo_colaborador_required(['Administrador','colaborador'])
 
 def atualizar_meu_usuario(request):
     if request.method == 'POST':
@@ -117,14 +117,14 @@ def atualizar_meu_usuario(request):
 
 
 @login_required
-@grupo_colaborador_required(['Administrador','colaborador'])
+#@grupo_colaborador_required(['Administrador','colaborador'])
 
 def lista_usuarios(request): # Lista Cliente 
-    lista_usuarios = MyUser.objects.select_related('perfil').filter(is_superuser=False) 
+    lista_usuarios = MyUser.objects.all() 
     return render(request, 'lista-usuarios.html', {'lista_usuarios': lista_usuarios})
 
 @login_required
-@grupo_colaborador_required(['Administrador','colaborador'])
+#@grupo_colaborador_required(['Administrador','colaborador'])
 
 def adicionar_usuario(request):
     user_form = CustomUserCreationForm(user=request.user)

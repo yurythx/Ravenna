@@ -8,7 +8,7 @@ def grupo_colaborador_required(groups):
                 return view_func(request, *args, **kwargs)
             else:
                 messages.error(request, 'Você não tem permissão para acessar esta página.')
-                return redirect('home')
+                return redirect('index')
                 # return HttpResponseForbidden('Você não tem permissão para acessar esta página.')
         return wrapper
     return decorator

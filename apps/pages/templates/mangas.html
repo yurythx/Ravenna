@@ -3,6 +3,15 @@
 
 {% block content %}
 
+  <!-- tag perms tira a visualização do botão se o usuario nao tiver permissão -->
+ 
+  <button type="button" class="btn btn-light" onclick="location.href='{% url 'lista_usuarios' %}'">
+      <i class="fas fa-users me-2"></i>Usuários do Sistema</button>
+ 
+
+  <button type="button" class="btn btn-light" onclick="location.href='{% url 'adicionar_usuario' %}'">
+      <i class="fas fa-cog me-2"></i>ADD usuario</button>
+
   <main class="main">
 
     <!-- Page Title -->

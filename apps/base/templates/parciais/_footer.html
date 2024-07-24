@@ -16,6 +16,11 @@
       </div>
       <div class="credits">
         
+        {% if user.is_authenticated %} 
+        <h6>Olá {{user.first_name}} {{user.last_name}}, </h6>
+        <h6>Bem Vindo(a)</h6>
+        {% endif %} 
+        
         Designed by <a href="#">Yuri M Menezes</a> <i class="fa-solid fa-skull"></i>
       </div>
     </div>
