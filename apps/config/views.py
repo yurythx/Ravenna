@@ -1,8 +1,10 @@
-
+from django.contrib.auth.decorators import login_required
 from django.shortcuts import render
 
+@login_required
+def painel_view(request):
+    return render(request, 'painel.html')
 
-# Create your views here.
-def index_config(request):
-   
-    return render(request, 'index_config.html')
+@login_required
+def configuracao_view(request):
+    return render(request, 'configuracao.html')
