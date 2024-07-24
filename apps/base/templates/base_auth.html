@@ -1,17 +1,27 @@
 {% extends 'base.html' %}
+{% load static %}
 
-{% block title %}Autenticação{% endblock %}
-{% block content %} 
-<div class="container col-xl-10 col-xxl-8 px-4 py-5">
-    <div class="row g-lg-5 py-5">
-        <div class="col-lg-7"></div>
-        <div class="col-md-10 mx-auto col-lg-5 p-4 p-md-5 rounded-4 bg-light shadow-sm">
-            
-            {% block content_auth %}{% endblock %}
-            <div class="text-muted py-4">
-                <small>Copyright© 2023 Name</small>
-            </div>
-        </div>
-    </div>
-</div> 
+{% block title %}
+
+{% endblock %}
+
+
+{% block content %}
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="{% static 'login/main_auth.css' %}">
+    
+</head>
+
+
+{% block content_auth %}
+
+{% endblock %}
+    
+
+
 {% endblock %}

@@ -1,6 +1,6 @@
-{% extends 'base_dashboard.html' %}
+{% extends 'base.html' %}
 {% block title %}Adicionar Usuário{% endblock %}
-{% block content_dash %}
+{% block content %}
 <div class="p-5 bg-light">
     <form class="row" method="POST" autocomplete="off" enctype="multipart/form-data">
         {% csrf_token %}
